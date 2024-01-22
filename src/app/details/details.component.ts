@@ -26,11 +26,18 @@ export class DetailsComponent {
   });
 
   constructor() {
-    this.houseId = Number(this.route.snapshot.params['id']);
-    this.house = this.housingService.getHousesById(this.houseId);
+    this.houseId = parseInt(this.route.snapshot.params['id'], 10);
+
+    this.housingService.getHousesById(this.houseId).then(house => {
+      this.house = house;
+    });
   }
 
   submitApplication() {
-    this.housingService.submitApplication(this.applyForm.value.firstName ?? '', this.applyForm.value.lastName ?? '', this.applyForm.value.email ?? '');
+    this.housingService.submitApplication(
+      this.applyForm.value.firstName ?? '',
+      this.applyForm.value.lastName ?? '',
+      this.applyForm.value.email ?? ''
+    );
   }
 }

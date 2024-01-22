@@ -18,8 +18,10 @@ export class HomeComponent {
   filteredHouses: Housing[] = [];
 
   constructor() {
-    this.houses = this.housingService.getHouses();
-    this.filteredHouses = this.houses;
+    this.housingService.getHouses().then(houses => {
+      this.houses = houses;
+      this.filteredHouses = houses;
+    });
   }
 
   filterResults(text: string) {
