@@ -33,15 +33,31 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ### Browser
 
+- Build and Start
+
 ```shell
   docker build -t angular17-browser .
   docker run --name angular17-browser -p 80:80 -d angular17-browser
 ```
 
+- Stop
+
+```shell
+  docker stop angular17-browser
+```
+
 ### Backend Server
+
+- Build and Start
 
 ```shell
   cd server
   docker build -t angular17-server .
   docker run --name angular17-server -p 3000:3000 -d angular17-server
+```
+
+- Stop
+
+```shell
+docker stop angular17-server
 ```
