@@ -1,0 +1,18 @@
+{
+  "name": "angular17-server",
+  "version": "1.0.0",
+  "description": "generic rest endpoint server",
+  "main": "index.js",
+  "engines": {
+    "node": ">=20.10.0"
+  },
+  "scripts": {
+    "server": "npx json-server db.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "json-server": "^1.0.0-alpha.22"
+  },
+  "author": "nuky",
+  "license": "MIT"
+}
