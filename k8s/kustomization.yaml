@@ -5,10 +5,10 @@ resources:
   - backend-service.yaml
   - frontend-deployment.yaml
   - frontend-service.yaml
-# images:
-#   - name: everest/appuidemo
-#     newName: 923621808594.dkr.ecr.us-east-1.amazonaws.com/everest/ui
-#     newTag: main
-  # - name: everest/router
-  #   newName: 604908243333.dkr.ecr.us-east-1.amazonaws.com/router
-  #   newTag: 0.0.1
+images:
+  - name: angular17-server
+    newName: angular17-server
+    newTag: latest
+  - name: angular17-client
+    newName: angular17-client
+    newTag: latest

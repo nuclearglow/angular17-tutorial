@@ -7,10 +7,10 @@ metadata:
   name: backend
 spec:
   type: NodePort
-  ports:
-    - name: '3000'
-      port: 3000
-      targetPort: 3000
   selector:
     app: angular17-app
     tier: backend
+  ports:
+    - name: backend-port
+      port: 3000 # internally used port
+      nodePort: 30951 # will be exposed in the cluster, external traffic can be routed to it

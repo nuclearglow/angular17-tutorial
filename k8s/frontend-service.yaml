@@ -4,11 +4,10 @@ metadata:
   name: frontend
 spec:
   type: NodePort
-  # exposes port 80 statically
-  ports:
-    - protocol: TCP
-      port: 8080
-      targetPort: 8080
   selector:
     app: angular17-app
-    tier: frontend
+  ports:
+    - name: http
+      port: 8080 # internally used port
+      nodePort: 30950 # will be exposed in the cluster, external traffic can be routed to it
+      protocol: TCP

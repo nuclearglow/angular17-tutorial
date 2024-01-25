@@ -19,8 +19,7 @@ spec:
           image: angular17-browser
           imagePullPolicy: 'IfNotPresent'
           ports:
-            - name: http
-              containerPort: 8080
+            - containerPort: 8080
           env:
             - name: BACKEND_HOST
               value: http://localhost:3000

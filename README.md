@@ -36,14 +36,20 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - Build and Start
 
 ```shell
-  docker build -t angular17-browser .
-  docker run --name angular17-browser -p 80:80 -d angular17-browser
+docker build -t angular17-browser .
+docker run --name angular17-browser -p 80:80 -d angular17-browser
 ```
 
 - Stop
 
 ```shell
-  docker stop angular17-browser
+docker stop angular17-browser
+```
+
+- Delete
+
+```shell
+docker rm angular17-browser
 ```
 
 ### Backend Server
@@ -51,9 +57,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - Build and Start
 
 ```shell
-  cd server
-  docker build -t angular17-server .
-  docker run --name angular17-server -p 3000:3000 -d angular17-server
+cd server
+docker build -t angular17-server .
+docker run --name angular17-server -p 3000:3000 -d angular17-server
 ```
 
 - Stop
@@ -62,9 +68,30 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 docker stop angular17-server
 ```
 
+- Delete
+
+```shell
+docker rm angular17-server
+```
+
 ## Kubernetes Deployment
 
-TODO
+### Set up the Kubernetes cluster locally using [kind](https://kind.sigs.k8s.io/)
+
+This will create a kind k8s cluster with a control plane and two workers for backend and frontend images using the provided configuration file
+
+```shell
+kind create cluster --config k8s/kind-config.yaml
+```
+
+### Load Docker Images
+
+```shell
+kind load docker-image angular17-browser
+kind load docker-image angular17-server
+```
+
+### Apply the Kubernetes Configuration
 
 ```shell
 kubectl apply -k k8s

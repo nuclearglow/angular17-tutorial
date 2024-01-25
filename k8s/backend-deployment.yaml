@@ -6,7 +6,7 @@ metadata:
     tier: backend
   name: backend
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: angular17-app
@@ -27,5 +27,5 @@ spec:
           imagePullPolicy: 'IfNotPresent'
           name: angular17-backend
           ports:
-            - containerPort: 3000
+            - containerPort: 30951
       restartPolicy: Always
