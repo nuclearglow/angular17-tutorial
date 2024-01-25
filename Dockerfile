@@ -17,7 +17,7 @@ RUN npm install -g @angular/cli@latest \
 COPY . .
 
 # build the Angular app for production
-RUN npm run build
+RUN npm run build:release
 
 # Stage 2: Serve the Angular application from Stage 1 using nginx
 FROM nginx:1.25.3-alpine
@@ -28,8 +28,14 @@ COPY --from=build /app/dist/angular17 /app/angular17
 # Copy nginx-browser.conf to the image
 COPY ./nginx-browser.conf /etc/nginx/conf.d/default.conf
 
+# Install ngssc binary - see https://www.npmjs.com/package/angular-server-side-configuration
+ADD https://github.com/kyubisation/angular-server-side-configuration/releases/download/v17.0.2/ngssc_64bit /usr/local/bin/ngssc
+RUN chmod +x /usr/local/bin/ngssc
+
 # Expose port 80
 EXPOSE 80
 
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+# we start nginx and the ngssc insertion at runtime
+COPY start.sh /usr/local/bin/start.sh
+RUN chmod +x /usr/local/bin/start.sh
+CMD ["/usr/local/bin/start.sh"]

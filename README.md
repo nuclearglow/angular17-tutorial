@@ -61,3 +61,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ```shell
 docker stop angular17-server
 ```
+
+## Kubernetes Deployment
+
+TODO
+
+```shell
+kubectl apply -k k8s
+```

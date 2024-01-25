@@ -34,13 +34,19 @@
             ],
             "scripts": [],
             "server": "src/main.server.ts",
-            "prerender": true,
+            "prerender": false,
             "ssr": {
               "entry": "server.ts"
             }
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",
@@ -98,6 +104,18 @@
               "src/**/*.ts",
               "src/**/*.html"
             ]
+          }
+        },
+        "ngsscbuild": {
+          "builder": "angular-server-side-configuration:ngsscbuild",
+          "options": {
+            "additionalEnvironmentVariables": [],
+            "buildTarget": "angular17:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "angular17:build:production"
+            }
           }
         }
       }

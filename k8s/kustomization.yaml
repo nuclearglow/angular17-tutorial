@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - backend-deployment.yaml
+  - backend-service.yaml
+  - frontend-deployment.yaml
+  - frontend-service.yaml
+# images:
+#   - name: everest/appuidemo
+#     newName: 923621808594.dkr.ecr.us-east-1.amazonaws.com/everest/ui
+#     newTag: main
+  # - name: everest/router
+  #   newName: 604908243333.dkr.ecr.us-east-1.amazonaws.com/router
+  #   newTag: 0.0.1

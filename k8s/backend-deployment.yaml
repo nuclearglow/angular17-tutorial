@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: angular17-app
+    tier: backend
+  name: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: angular17-app
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: angular17-app
+        tier: backend
+    spec:
+      containers:
+        # configures the env variables directly, not using a config map
+        - env:
+            - name: DATABASE_FILENAME
+              value: db.json
+          # Here, the docker image is specified
+          image: angular17-server
+          imagePullPolicy: 'IfNotPresent'
+          name: angular17-backend
+          ports:
+            - containerPort: 3000
+      restartPolicy: Always

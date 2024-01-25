@@ -23,4 +23,7 @@
       "source.fixAll.eslint": "explicit"
     }
   },
+  "cSpell.words": [
+    "ngsscbuild"
+  ],
 }

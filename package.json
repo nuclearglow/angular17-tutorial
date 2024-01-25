@@ -1,16 +1,17 @@
 {
-  "name": "angular17",
-  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "server": "npx json-server --watch db.json",
-    "build": "ng build",
+    "build": "ng build ",
+    "build:release": "ng run angular17:ngsscbuild:production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:angular17": "node dist/angular17/server/server.mjs",
     "lint": "ng lint"
   },
+  "name": "angular17",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@angular/animations": "^17.0.0",
@@ -23,7 +24,10 @@
     "@angular/platform-server": "^17.0.0",
     "@angular/router": "^17.0.0",
     "@angular/ssr": "^17.0.3",
+    "@types/lodash-es": "^4.17.12",
+    "angular-server-side-configuration": "^17.0.2",
     "express": "^4.18.2",
+    "lodash-es": "^4.17.21",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
